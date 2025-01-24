@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PointOfSaleRepository extends JpaRepository<PointOfSale, Long> {
+    PointOfSale findByName(String posName);
 }
 
 

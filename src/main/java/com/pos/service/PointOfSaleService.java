@@ -57,4 +57,8 @@ public class PointOfSaleService {
                 .orElseThrow(() -> new RuntimeException("Punto de venta no encontrado con ID: " + id));
         posRepository.delete(posModel);
     }
+
+    public PointOfSale getPOS(String posName) {
+        return posRepository.findByName(posName) ;
+    }
 }

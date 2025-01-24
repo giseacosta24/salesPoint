@@ -41,4 +41,8 @@ public class CostController {
         return ResponseEntity.ok(service.getPointsA(pointAId));
     }
 
+    @GetMapping("/minimumCost")
+    public ResponseEntity<?> getMinimumCost(@RequestParam String pointOfSaleA, @RequestParam String pointOfSaleB) {
+        return ResponseEntity.ok(service.getMinimumCost(pointOfSaleA,pointOfSaleB));
+    }
 }

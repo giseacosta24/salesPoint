@@ -2,10 +2,13 @@ package com.pos.service;
 
 import com.pos.dto.CostDTO;
 import com.pos.model.Cost;
+import com.pos.model.PointOfSale;
 import com.pos.repository.CostRepository;
+import com.pos.repository.PointOfSaleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -13,9 +16,11 @@ public class CostService {
 
     @Autowired
     private final CostRepository repository;
+    private final PointOfSaleRepository pointOfSaleRepository;
 
-    public CostService(CostRepository repository) {
+    public CostService(CostRepository repository, PointOfSaleRepository pointOfSaleRepository) {
         this.repository = repository;
+        this.pointOfSaleRepository = pointOfSaleRepository;
     }
 
     public void addCost(CostDTO costdto) {
@@ -40,6 +45,24 @@ public class CostService {
 
     public List<Cost> getPointsA(Long pointAId) {
         return repository.findByPointAId(pointAId);
+    }
+
+    public Cost getMinimumCost(String pointOfSaleA, String pointOfSaleB) {
+        PointOfSale pointOfSale1= new PointOfSale();
+        PointOfSale pointOfSale2= new PointOfSale();
+        pointOfSale1=pointOfSaleRepository.findByName(pointOfSaleA);
+        pointOfSale2=pointOfSaleRepository.findByName(pointOfSaleB);
+
+        List<Cost> costs = repository.findByPointAIdOrPointBId(pointOfSale1.getId(), pointOfSale2.getId());
+        PointOfSale finalPointOfSale = pointOfSale1;
+        PointOfSale finalPointOfSale1 = pointOfSale2;
+        return costs.stream()
+                .filter(cost ->
+                        (cost.getPointAId().equals(finalPointOfSale.getId()) && cost.getPointBId().equals(finalPointOfSale1.getId())) ||
+                                (cost.getPointAId().equals(finalPointOfSale1.getId()) && cost.getPointBId().equals(finalPointOfSale.getId()))
+                )
+                .min(Comparator.comparingDouble(Cost::getCost))
+                .orElse(null);
     }
 
 }
