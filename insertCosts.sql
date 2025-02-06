@@ -1,0 +1,14 @@
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(1,1,2,2);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(2,1,3,3);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(3,2,3,5);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(4,2,4,10);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(5,1,4,11);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(6,4,5,5);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(7,2,5,14);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(8,6,7,32);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(9,8,9,11);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(10,10,7,5);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(11,3,8,10);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(12,5,8,30);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(13,10,5,5);
+INSERT INTO `challenge`.`costs`(`id`,`point_a_id`,`point_b_id`,`cost`)VALUES(14,4,6,6);
